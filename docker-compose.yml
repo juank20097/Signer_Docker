@@ -17,6 +17,18 @@ services:
       network_firmaec:
         ipv4_address: 172.29.0.1
 
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    depends_on:
+      - postgres_f
+    ports:
+      - 5050:8080
+    networks:
+      network_firmaec:
+        ipv4_address: 172.29.0.5
+
   ws-firmaec:
     image: spring/firmaec_ws
     container_name: ws-firmaec
