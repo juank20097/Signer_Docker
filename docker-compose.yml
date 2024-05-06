@@ -30,7 +30,9 @@ services:
         ipv4_address: 172.29.0.5
 
   ws-firmaec:
-    image: spring/firmaec_ws
+    build:
+      context: ./Spring
+      dockerfile: Dockerfile  
     container_name: ws-firmaec
     restart: always
     depends_on:
@@ -57,7 +59,9 @@ services:
         ipv4_address: 172.29.0.3
 
   mintel-firmaec:
-    image: jboss/wildfly-admin
+    build:
+      context: ./Wildfly
+      dockerfile: Dockerfile
     container_name: mintel-firmaec
     restart: always
     depends_on:
